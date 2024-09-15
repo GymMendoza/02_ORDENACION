@@ -2,6 +2,7 @@
 using namespace std;
 void interDirDer(int x[],int n);
 void interDirIzq(int x[],int n);
+void interDirCen(int x[],int n);
 int main(){
 	int opc;
 	int x[100],n;
@@ -25,7 +26,7 @@ int main(){
 				interDirIzq( x, n);
 				break;
 			case 3:
-
+				interDirCen( x, n);
 				break;
 			case 4:
 
@@ -70,6 +71,27 @@ void interDirIzq(int x[],int n){
 				x[j]=aux;
 			}
 		}
+	}
+	for(int i=0;i<n;i++){
+		cout<<x[i]<<" ";
+	}
+	cout<<endl;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+void interDirCen(int x[],int n){
+	int cen=1;
+	int i=0;
+	while(i<n-1 && cen==1){
+		cen=0;
+		for(int j=0;j<n-i;j++){
+			if(x[j]>x[j+1]){
+				int aux=x[j];
+				x[j]=x[j+1];
+				x[j+1]=aux;
+				cen=1;
+			}
+		}
+		i++;
 	}
 	for(int i=0;i<n;i++){
 		cout<<x[i]<<" ";
