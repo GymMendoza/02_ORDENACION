@@ -1,5 +1,7 @@
 #include<iostream>
 using namespace std;
+void interDirDer(int x[],int n);
+
 int main(){
 	int opc;
 	int x[100],n;
@@ -14,22 +16,47 @@ int main(){
 		cout<<"3. inter Direccion Central"<<endl;
 		cout<<"4. inter Direccion Bidireccional"<<endl;
 		cout<<"5. SALIR"<<endl;
-		cout<<"ELIJA UNA OPCCION: "<<opc<<endl; cin>>opc;
+		cout<<"ELIJA UNA OPCCION: "; cin>>opc;
 		switch(opc){
 			case 1:
+				interDirDer( x, n);
 				break;
 			case 2:
+
 				break;
 			case 3:
+
 				break;
 			case 4:
+
 				break;
 			case 5:
+				cout<<"SALIENDO...."<<endl;
 				break;
 			default:
+				cout<<"Opcion invalida, elija nuevamente"<<endl;
 				break;
 		}
-	}while(opc!=5);
+		system("pause");
+		system("cls");
+	}while(opc!=5);{
+		cout<<"GRACIAS POR USAR EL PROGRAMA"<<endl;
+	}
 	return 0;
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+void interDirDer(int x[],int n){
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			if(x[j]>x[j+1]){
+			int aux=x[j];
+			x[j]=x[j+1];
+			x[j+1]=aux;
+			}
+		}
+	}
+	for(int i=0;i<n;i++){
+		cout<<x[i]<<" ";
+	}
+	cout<<endl;
+}
