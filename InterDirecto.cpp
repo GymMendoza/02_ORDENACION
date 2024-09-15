@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 void interDirDer(int x[],int n);
-
+void interDirIzq(int x[],int n);
 int main(){
 	int opc;
 	int x[100],n;
@@ -22,7 +22,7 @@ int main(){
 				interDirDer( x, n);
 				break;
 			case 2:
-
+				interDirIzq( x, n);
 				break;
 			case 3:
 
@@ -52,6 +52,22 @@ void interDirDer(int x[],int n){
 			int aux=x[j];
 			x[j]=x[j+1];
 			x[j+1]=aux;
+			}
+		}
+	}
+	for(int i=0;i<n;i++){
+		cout<<x[i]<<" ";
+	}
+	cout<<endl;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+void interDirIzq(int x[],int n){
+	for(int i=0;i<n-1;i++){
+		for(int j=n-1;j>i;j--){
+			if(x[j]>x[j-1]){
+				int aux=x[j-1];
+				x[j-1]=x[j];
+				x[j]=aux;
 			}
 		}
 	}
