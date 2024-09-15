@@ -3,6 +3,7 @@ using namespace std;
 void interDirDer(int x[],int n);
 void interDirIzq(int x[],int n);
 void interDirCen(int x[],int n);
+void interDirBi(int x[],int n);
 int main(){
 	int opc;
 	int x[100],n;
@@ -29,7 +30,7 @@ int main(){
 				interDirCen( x, n);
 				break;
 			case 4:
-
+				interDirBi( x, n);
 				break;
 			case 5:
 				cout<<"SALIENDO...."<<endl;
@@ -92,6 +93,37 @@ void interDirCen(int x[],int n){
 			}
 		}
 		i++;
+	}
+	for(int i=0;i<n;i++){
+		cout<<x[i]<<" ";
+	}
+	cout<<endl;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+void interDirBi(int x[],int n){
+	int izq=0;
+	int der=n;
+	int k;
+	while (izq<=der){
+		k=izq;
+		for(int i=der;i>izq;i--){
+			if(x[i-1]>x[i]){
+				int aux=x[i-1];
+				x[i-1]=x[i];
+				x[i]=aux;
+				k=i;
+			}
+		}
+		izq++;
+		for(int i=izq;i<der;i++){
+			if(x[i]>x[i+1]){
+				int aux=x[i];
+				x[i]=x[i+1];
+				x[i+1]=aux;
+				k=i;
+			}
+		}
+		der--;
 	}
 	for(int i=0;i<n;i++){
 		cout<<x[i]<<" ";
